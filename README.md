@@ -14,19 +14,18 @@ This repository contains the necessary configuration files and step-by-step inst
 ## Step-by-Step Instructions
 
 ### 1. Start Minikube / cluster (5 marks)
-To initialize and start your local Kubernetes cluster, run:
-```bash
-minikube start
-```
-*Output to capture:* The initialization logs showing Minikube downloading images and stating "Done! kubectl is now configured to use minikube cluster".
+Since you are using Docker Desktop, you can enable its built-in Kubernetes cluster:
+1. Open Docker Desktop.
+2. Go to **Settings** (the gear icon) > **Kubernetes**.
+3. Check the box for **"Enable Kubernetes"** and click **Apply & restart**.
+*Output to capture:* Take a screenshot of the Docker Desktop UI showing the green "Kubernetes is running" icon at the bottom left corner.
 
 ### 2. Check cluster status (5 marks)
-To verify that your cluster is up and running correctly:
+To verify that your Docker Desktop Kubernetes cluster is up and running correctly, open your terminal (Command Prompt or PowerShell) and run:
 ```bash
-minikube status
+kubectl cluster-info
 ```
-*Output to capture:* Information showing host, kubelet, apiserver are "Running" and kubeconfig is "Configured".
-Alternatively, you can run `kubectl cluster-info`.
+*Output to capture:* Information showing that the Kubernetes control plane is running. You can also run `kubectl get nodes` to show that the `docker-desktop` node is "Ready".
 
 ### 3. Create a Pod (nginx) (5 marks)
 We will use the provided `pod.yaml` file to create the Nginx pod declaratively.
